@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #6b8e23;">
+  <div class="container-fluid">
+    <!-- Título estilizado do blog -->
+    <a class="navbar-brand text-white fw-bold" href="/" style="font-size: 1.5rem;">
+      BichoBlog <i class="bi bi-paw"></i>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <% if user_signed_in? %>
+          <!-- Dropdown para área logada -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li>
+                <%= link_to "Configurações", edit_user_registration_path, class: "dropdown-item" %>
+              </li>
+              <li>
+                <%= button_to "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item btn btn-link", form: { "data-turbo" => "false" } %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <!-- Opções para usuários não logados -->
+          <li class="nav-item">
+            <%= link_to "Cadastre-se", new_user_registration_path, class: "nav-link text-white" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link text-white" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

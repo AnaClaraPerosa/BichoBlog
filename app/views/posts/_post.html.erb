@@ -1,0 +1,9 @@
+<div class="col-md-4 mb-4">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= post.title %></h5>
+      <p class="card-text"><%= truncate(post.content, length: 100) %></p>
+      <a href="<%= post_path(post) %>" class="btn btn-primary">Leia mais</a>
+    </div>
+  </div>
+</div>
