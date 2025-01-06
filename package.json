@@ -1,4 +1,10 @@
 {
   "name": "app",
-  "private": "true"
+  "private": "true",
+  "scripts": {
+    "build:css": "sass ./app/assets/stylesheets/application.scss:./app/assets/stylesheets/application.css"
+  },
+  "dependencies": {
+    "sass": "^1.32.0"
+  }
 }
